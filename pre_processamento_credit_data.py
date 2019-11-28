@@ -21,7 +21,6 @@ base.loc[base.age < 0, 'age'] = mediaAge
 
 
 # DADOS FALTANTES
-
 pd.isnull(base['age'])
 base.loc[pd.isnull(base['age'])]
 
@@ -32,3 +31,9 @@ from sklearn.impute import SimpleImputer
 imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
 imputer = imputer.fit(previsores[:, 0:3])
 previsores[:, 0:3] = imputer.transform(previsores[:,0:3])
+
+
+#ESCALONAMENTO DE ATRIBUTOS
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+previsores = scaler.fit_transform(previsores)
