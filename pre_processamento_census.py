@@ -14,3 +14,6 @@ previsores = onehotencorder.fit_transform(previsores).toarray()
 labelencorder_classe = LabelEncoder()
 classe = labelencorder_classe.fit_transform(classe)
 
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+previsores = scaler.fit_transform(previsores)
